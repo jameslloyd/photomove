@@ -42,7 +42,7 @@ def move_file(src,dest):
 def process_photo(path,rootpathdestination):
     files = os.listdir(path)    
     for fname in files:
-        if not fname.startswith(".") or fname.endswith(".jpg") or fname.endswith(".jpeg") or fname.endswith(".gif") or fname.endswith(".mp4") or fname.endswith(".avi"):
+        if not fname.startswith(".") or fname.endswith(".jpg") or fname.endswith(".jpeg") or fname.endswith(".mp4") or fname.endswith(".avi"):
             print path + '/' + fname
             date = get_image_date(path + '/' + fname)
             src = path + "/" + fname
@@ -54,8 +54,20 @@ def process_photo(path,rootpathdestination):
                 move_file(src,dest)
             else:
                 #move_file(os.path)
-                print "no exif moving to manual sort " + src
-                move_file(src,"/media/disk1/Photos/manual-sort")
+				# cant find exif so try to use date in path name this should pick up the mp4's
+				pattern = "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]"
+				match = re.match(pattern, fname)
+				if match:
+					split1 = fname.split(' ')
+					split2 = split1[0].split('-')
+					regexpath = '/' + split2[0] + '/' + split2[1] + '/' + split2[2] + '/'
+					regexdest = rootpathdestination + regexpath + fname
+					#print 'REGEX DESTINATION = ' + regexdest 
+					#print src
+					move_file(src,regexdest)
+				else:
+					print 'OFFENDING FILE = ' + fname
+					move_file(src,'/media/disk1/Photos/manual-sort')
 
             
     
