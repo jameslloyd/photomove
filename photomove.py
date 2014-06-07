@@ -60,7 +60,9 @@ def process_photo(path,rootpathdestination):
 				if match:
 					split1 = fname.split(' ')
 					split2 = split1[0].split('-')
-					regexpath = '/' + split2[0] + '/' + split2[1] + '/' + split2[2] + '/'
+					foldername = datetime.datetime( int(split2[0]), int(split2[1]), int(split2[2]), 0,0)
+					
+					regexpath = '/' + split2[0] + '/' + split2[1] + '/' + foldername.strftime('%d %B %Y') + '/'
 					regexdest = rootpathdestination + regexpath + fname
 					#print 'REGEX DESTINATION = ' + regexdest 
 					#print src
