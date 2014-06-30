@@ -28,9 +28,9 @@ def get_image_date(fname,format = '/%Y/%m/%d %B %Y'):
 	match = re.match(pattern, date)
 	if match:
         	date = datetime.datetime.strptime(date, '%Y:%m:%d %H:%M:%S').strftime(format)
+        	return date
         else:
-        	print "failed"
-        return date
+        	return False
     
 def move_file(src,dest):
     src = os.path.abspath(src)
