@@ -24,7 +24,12 @@ def get_image_date(fname,format = '/%Y/%m/%d %B %Y'):
         return False
     else:
         date = data['DateTimeOriginal']
-        date = datetime.datetime.strptime(date, '%Y:%m:%d %H:%M:%S').strftime(format)
+        pattern = "^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4} [0-9]:[0-9][0-9]:[0-9][0-9]"
+	match = re.match(pattern, date)
+	if match:
+        	date = datetime.datetime.strptime(date, '%Y:%m:%d %H:%M:%S').strftime(format)
+        else:
+        	print "failed"
         return date
     
 def move_file(src,dest):
