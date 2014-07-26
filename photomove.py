@@ -74,7 +74,7 @@ def process_photo(path,rootpathdestination):
 					move_file(src,regexdest)
 				else:
 					print 'OFFENDING FILE = ' + fname
-					move_file(src,'/media/disk1/Photos/manual-sort')
+					move_file(src,'/home/james/Photos/manual-sort')
 
             
     
