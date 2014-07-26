@@ -79,5 +79,5 @@ def process_photo(path,rootpathdestination):
             
     
 #process_photo("/media/disk6/Dropbox/picplz/jameslloyd","/media/disk1/photos")
-process_photo("~james/Dropbox/Camera Uploads","~james/Photos")
-process_photo("~james/Dropbox/Camera Uploads from Sarah","~james/Photos")
+process_photo("/homejames/Dropbox/Camera Uploads","/home/james/Photos")
+process_photo("/home/james/Dropbox/Camera Uploads from Sarah","/home/james/Photos")
