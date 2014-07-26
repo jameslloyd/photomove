@@ -47,7 +47,7 @@ def move_file(src,dest):
 def process_photo(path,rootpathdestination):
     files = os.listdir(path)    
     for fname in files:
-        if not fname.startswith(".") or fname.endswith(".jpg") or fname.endswith(".jpeg") or fname.endswith(".mp4") or fname.endswith(".avi"):
+        if not fname.startswith(".") or fname.endswith(".JPG") or fname.endswith(".JPEG") or fname.endswith(".jpg") or fname.endswith(".jpeg") or fname.endswith(".mp4") or fname.endswith(".avi"):
             print path + '/' + fname
             date = get_image_date(path + '/' + fname)
             src = path + "/" + fname
