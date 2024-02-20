@@ -1,2 +1,5 @@
 photomove.log
 *.log
+.venv
+.env
+downloads
