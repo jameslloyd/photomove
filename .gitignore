@@ -3,3 +3,4 @@ photomove.log
 .venv
 .env
 downloads
+__pycache__
