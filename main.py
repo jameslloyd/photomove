@@ -27,7 +27,8 @@ logger.addHandler(handler)
 load_dotenv()
 DROPBOX_TOKEN = os.getenv('DROPBOX_TOKEN')
 PHOTOS_DIR = os.getenv('PHOTOS_DIR')
-DROPBOX_CAMERA_UPLOADS_DIR = json.loads(os.getenv('DROPBOX_CAMERA_UPLOADS_DIR'))
+DROPBOX_CAMERA_UPLOADS_DIR1 = os.getenv('DROPBOX_CAMERA_UPLOADS_DIR1')
+DROPBOX_CAMERA_UPLOADS_DIR2 = os.getenv('DROPBOX_CAMERA_UPLOADS_DIR2')
 CHECK_EVERY = int(os.getenv('CHECK_EVERY'))
 
 dbx = dropbox.Dropbox(DROPBOX_TOKEN)
@@ -58,7 +59,7 @@ def list_files(path):
     
 # loop to check files every 10 minutes
 while True:
-    for dir in DROPBOX_CAMERA_UPLOADS_DIR:
+    for dir in [DROPBOX_CAMERA_UPLOADS_DIR1, DROPBOX_CAMERA_UPLOADS_DIR2]:
         logging.info(f'Checking {dir} for files...')
         list_files(dir)
     logging.info(f'Sleeping for {CHECK_EVERY / 60} minutes...')
